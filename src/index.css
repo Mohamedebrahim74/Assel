@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-parchment-100 font-body antialiased;
+  background-image: radial-gradient(circle at 50% 0%, rgba(176, 141, 79, 0.08), transparent 60%);
+}
+
+::selection {
+  background: rgba(201, 166, 103, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid theme('colors.gilt.400');
+  outline-offset: 2px;
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 166, 103, 0.4), transparent);
+}
