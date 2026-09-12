@@ -1,11 +1,7 @@
 import { QRCodeSVG } from 'qrcode.react';
 import { Printer } from 'lucide-react';
 import { Logo } from '../components/Logo';
-
-// The single production check-in URL. Set VITE_CHECKIN_URL in your
-// environment (see README) — falls back to the current origin so the QR
-// still works immediately after deployment even if that variable is unset.
-const CHECKIN_URL = (import.meta.env.VITE_CHECKIN_URL as string) || window.location.origin;
+import { EVENT_QR_TOKEN } from '../lib/qrConfig';
 
 export function QRPage() {
   return (
@@ -16,15 +12,15 @@ export function QRPage() {
           CIC Convocation Ceremony
         </h1>
         <p className="mt-1 text-sm uppercase tracking-widest text-gilt-400 print:text-ink-700">
-          Check-In QR Code
+          Official Event QR Code
         </p>
 
         <div className="mt-8 inline-flex rounded-lg border border-ink-700 bg-parchment-50 p-6 shadow-card print:border-0 print:shadow-none">
-          <QRCodeSVG value={CHECKIN_URL} size={240} bgColor="#FBF9F4" fgColor="#12151C" level="M" />
+          <QRCodeSVG value={EVENT_QR_TOKEN} size={240} bgColor="#FBF9F4" fgColor="#12151C" level="M" />
         </div>
 
         <p className="mt-6 text-sm text-parchment-200/70 print:text-ink-700">
-          Scan to access event check-in
+          Leaders: scan this QR code with the check-in app to verify attendance
         </p>
 
         <button
